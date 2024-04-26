@@ -4,7 +4,7 @@
 ######
 # Build frontend
 ######
-FROM --platform=${BUILDPLATFORM} node:lts-alpine as frontend
+FROM node:lts-alpine as frontend
 # Set the working directory
 WORKDIR /build
 # Download dependencies
@@ -20,7 +20,7 @@ RUN npm run build
 ######
 # Build backend
 ######
-FROM --platform=${BUILDPLATFORM} golang:1.21-alpine as builder
+FROM golang:1.21-alpine as builder
 # Set the working directory
 WORKDIR /build
 # Download dependencies
